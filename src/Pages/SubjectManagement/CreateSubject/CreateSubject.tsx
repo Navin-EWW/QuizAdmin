@@ -73,8 +73,8 @@ export function CreateSubject() {
       event?.preventDefault();
       console.log(values, "------onSubmit-");
       mutate({
-        subjectName: values.subjectName ?? "",
-        descriptionName: values.descriptionName ?? "",
+        name: values.subjectName ?? "",
+        discription: values.descriptionName ?? "",
       });
 
       // error?.status && resetForm();
