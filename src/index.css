@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css?family=Nova+Flat");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap");
+
+.react-datepicker__day--keyboard-selected {
+  background: #00145b !important;
+}
+
+li {
+  outline: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --toastify-color-success: #00145b !important;
+}
+
+.calender_class .react-datepicker__input-container input {
+  border: 1px solid #eee;
+  padding: 6px 4px;
+  border-radius: 2px;
+}
+
+.calender_class .react-datepicker {
+  border: none;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.calender_class .react-datepicker__input-container input:focus,
+.calender_class .react-datepicker__input-container input:hover,
+.calender_class .react-datepicker__input-container input:active {
+  outline: none;
+  border: 1px solid #00145b;
+}
+
+.calender_class .react-datepicker__header {
+  background-color: transparent;
+  padding: 15px 0 8px 0;
+  border-bottom: none;
+}
+
+.calender_class .react-datepicker__navigation-icon::before {
+  top: 17px;
+}
+
+.calender_class .react-datepicker__day-name {
+  margin: 7px;
+  color: #b9bfbf;
+}
+
+.calender_class .react-datepicker__day {
+  margin: 7px;
+}
+
+.calender_class .react-datepicker__day:hover {
+  color: #fff;
+  background-color: #00145b;
+}
+
+.calender_class .react-datepicker__day:focus-visible {
+  outline: none;
+}
+
+.calender_class .react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range {
+  background-color: #00145b;
+}
+
+.calender_class .react-datepicker__triangle::after,
+.calender_class .react-datepicker__triangle::before {
+  display: none;
+}

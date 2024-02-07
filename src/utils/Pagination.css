@@ -1,0 +1,39 @@
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.25;
+  border: 1px solid #dee2e6;
+}
+.page-link:focus-visible,
+.page-link:focus {
+  outline: none;
+}
+.page-link:hover {
+  cursor: pointer;
+}
+li.page-item a {
+  width: auto;
+  height: 38px;
+  color: #000000;
+  text-align: center;
+  outline: none;
+}
+.dark {
+  background-color: #f1f1f1;
+}
+.dark :hover {
+  cursor: default !important;
+}
+.pagination li:first-child a {
+  border-radius: 5px 0 0 5px;
+}
+.pagination li:last-child a {
+  border-radius: 0 5px 5px 0;
+}
+li.page-item.active > a {
+  background: #e3f8f6;
+  color: #2dd2c6;
+  border-color: #2dd2c6;
+  z-index: 10;
+}

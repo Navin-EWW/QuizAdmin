@@ -1,0 +1,93 @@
+{
+  "app_name": "quiz dashboard",
+  "document_title": "quiz dashboard",
+  "Header": {
+    
+  },
+  "About": {
+   
+  },
+  "Author": {
+    
+  },
+  "Home": {
+    
+  },
+  "Footer": {
+    "A": "A",
+    "T": "T",
+    "E": "E",
+    "Address": "Room C 18/F, Gemstar Tower, 23 Man Lok St, Hok Yuen, Hung Hom, HK",
+    "PrivacyPolicy": "Privacy Policy",
+    "TermsAndConditions": "Terms and Conditions",
+    "Rights": "© quiz dashboard Logistics Technologies Limited 2022. All rights resereved.",
+    "Shipment": "Shipment",
+    "Booking": "Booking",
+    "ContactUs":"CONTACT US",
+    "TagLine":"Prparing Your Business? We would Love to help! Let's talk."
+  },
+  "Form": {
+    "EnterEmail": "Enter email",
+    "EmailAddress": "Email Address",
+    "Password": "Password",
+    "RememberMe": "Remember me",
+    "ForgotPassword": "Forgot password?",
+    "SignIn" :"Sign in",
+    "LogIn" :"Log in",
+    "SignUp": "Sign up",
+    "DontHaveAnAccount": "Don't have an account?",
+    "Register":"Register"
+  },
+  "ForgotPassword":{
+    "CheckInboxMessage": "Check your inbox for the link to reset your password.",
+    "ResetLinkSent":"Reset link sent",
+    "BackToLogin":"Back to log in",
+    "Send":"Send",
+    "EmailAddress":"Email Address",
+    "LostPassword":"Lost your password? Please enter your email address. You will receive a link to create a new password via email.",
+    "ForgotPassword":"forgot password"
+  },
+  "UserHeader":{
+    "Shipment":"Shipment",
+    "Booking":"Booking",
+    "NewBooking":"New Booking"
+  },
+  "UserMyaccount": {
+    "MyAccount": "MY ACCOUNT",
+    "BasicInfo": "BASIC INFO",
+    "FirstName": "First name",
+    "LastName": "Last name",
+    "Email": "Email",
+    "BusinessPhoneNumber": "Business Phone Number",
+    "Country": "Country",
+    "Password": "Password",
+    "ResetPassword": "Reset Password",
+    "LastUpdateAt": "Last Update at",
+    "PreferredLanguage": "Preferred Language",
+    "Company": "Company",
+    "JobCapacity": "Job Capacity",
+    "SaveChanges":"Save Changes",
+    "Cancel":"Cancel"
+  },
+  "UserSideBar":{
+    "Profile":"Profile",
+    "Notification":"Notification",
+    "Security":"Security",
+    "LogOut":"Log Out"
+  },
+  "LogOut":{
+    "LeaveThisPage":"leave this page?",
+    "AreYouSureToLogOut":"Are You Sure To Log Out ?",
+    "OK":"Ok",
+    "Cancel":"Cancel"
+  },
+  "ResetPassword":{
+    "ResetPassword":"RESET PASSWORD",
+    "CurrentPassword":"Current Password",
+    "NewPassword":"New Password",
+    "RepeatNewPassword":"Repeat New Password",
+    "ConfirmPassword":"Confirm Password",
+    "Confirm":"Confirm",
+    "BackToAccounts":"Back to accounts"
+  }
+}

@@ -1,0 +1,48 @@
+workflow:
+    rules:
+      - if: $CI_COMMIT_REF_NAME ==  "development"
+        variables:
+          ENVIRONMENT_NAME: development
+          S3_BUCKET: $DEV_S3_BUCKET
+          API_URL: $DEV_API_URL
+          DISTRIBUTION_ID: $DEV_DISTRIBUTION_ID
+      - if: $CI_COMMIT_REF_NAME == "staging" 
+        variables:                                 
+          ENVIRONMENT_NAME: staging
+          S3_BUCKET: $STAGING_S3_BUCKET
+          API_URL: $STAGING_API_URL
+          DISTRIBUTION_ID: $STAGING_DISTRIBUTION_ID
+      - if: $CI_COMMIT_REF_NAME == "master" 
+        variables:                                 
+          ENVIRONMENT_NAME: production
+          S3_BUCKET: $PRODUCTION_S3_BUCKET
+          API_URL: $PRODUCTION_API_URL
+          DISTRIBUTION_ID: $PRODUCTION_DISTRIBUTION_ID
+      - when: always 
+
+
+
+build website:
+  stage: build
+  image: node:16
+  script:
+    - npm install
+    - echo VITE_REACT_APP_BACKEND_URL=$API_URL >> .env
+    - echo VITE_REACT_APP_ENV=production >> .env
+    - echo VITE_MAP_KEY=$MAP_KEY >> .env
+    - npm run build
+  artifacts:
+    paths:
+      - dist  
+
+deploy to s3:
+  stage: deploy
+  environment: $ENVIRONMENT_NAME
+  image: 
+    name: amazon/aws-cli
+    entrypoint: [""]
+  script:
+    - aws --version
+    - aws s3 rm s3://$S3_BUCKET --recursive
+    - aws s3 sync ./dist s3://$S3_BUCKET
+    - aws cloudfront create-invalidation --distribution-id  $DISTRIBUTION_ID --paths "/*"

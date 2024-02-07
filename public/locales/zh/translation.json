@@ -1,0 +1,90 @@
+{
+  "app_name": "跳跃点",
+  "document_title": "跳跃点",
+  "Header": {},
+  "ServiceHeader": {},
+  "About": {},
+  "Author": {},
+  "Home": {},
+  "EditorialBoard": {},
+  "Footer": {
+    "A": "一个",
+    "T": "吨",
+    "E": "乙",
+    "Address": "香港红磡鹤园民乐街23号宝石之星大厦18楼C室",
+    "PrivacyPolicy": "隐私政策",
+    "TermsAndConditions": "条款和条件",
+    "Shipment": "运输",
+    "Booking": "预订",
+    "ContactUs":"联系我们",
+    "TagLine":"准备您的业务？我们很乐意帮助！让我们谈谈。"
+  },
+  "Form": {
+    "EmailAddress": "电子邮件地址",
+    "Password": "密码",
+    "SignIn": "登入",
+    "LogIn": "登录",
+    "SignUp": "注册",
+    "DontHaveAnAccount": "没有帐户？?",
+    "Register": "登记",
+    "ForgotPassword": "忘记密码？",
+    "RememberMe": "记得我"
+  },
+  "ForgotPassword": {
+    "CheckInboxMessage": "检查您的收件箱以获取重置密码的链接。",
+    "ResetLinkSent": "已发送重置链接",
+    "BackToLogin": "回到登入",
+    "Send": "发送",
+    "EmailAddress": "电子邮件地址",
+    "LostPassword": "忘记密码？请输入您的电子邮件地址。您将通过电子邮件收到创建新密码的链接。",
+    "ForgotPassword": "忘记密码"
+  },
+  "UserHeader": {
+    "Shipment": "运输",
+    "Booking": "预订",
+    "NewBooking": "新预订"
+  },
+  "UserMyaccount": {
+    "MyAccount": "我的帐户",
+    "BasicInfo": "基本信息",
+    "FirstName": "名",
+    "LastName": "姓",
+    "Email": "电子邮件",
+    "BusinessPhoneNumber": "公司电话号码",
+    "Country": "国家",
+    "Password": "密码",
+    "ResetPassword": "重设密码",
+    "LastUpdateAt": "最后更新于",
+    "PreferredLanguage": "首选语言",
+    "Company": "公司",
+    "JobCapacity": "工作能力",
+    "SaveChanges":"保存更改",
+    "Cancel":"取消"
+  },
+  "UserSideBar":{
+    "Profile":"轮廓",
+    "Notification":"通知",
+    "Security":"安全",
+    "LogOut":"登出"
+  },
+  "LogOut":{
+    "LeaveThisPage":"离开这个页面？",
+    "AreYouSureToLogOut":"您确定要退出吗？",
+    "OK":"好的",
+    "Cancel":"取消"
+  },
+  "LeaveThisPage":{
+    "LeaveThisPage":"离开这个页面？",
+    "YouHaveUnsavedChanges":"如果您决定继续，您有未保存的更改将会丢失。您确定要离开此页面吗？",
+    "StayOnPage":"留在页面上"
+  },
+  "ResetPassword":{
+    "ResetPassword":"重设密码",
+    "CurrentPassword":"当前密码",
+    "NewPassword":"新密码",
+    "RepeatNewPassword":"重复新密码",
+    "ConfirmPassword":"确认密码",
+    "Confirm":"确认",
+    "BackToAccounts":"返回账户"
+  }
+}

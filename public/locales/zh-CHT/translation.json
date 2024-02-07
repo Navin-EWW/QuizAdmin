@@ -1,0 +1,90 @@
+{
+  "app_name": "跳躍點",
+  "document_title": "跳躍點",
+  "Header": {},
+  "ServiceHeader": {},
+  "About": {},
+  "Author": {},
+  "Home": {},
+  "EditorialBoard": {},
+  "Footer": {
+    "A": "一個",
+    "T": "噸",
+    "E": "乙",
+    "Address": "香港紅磡鶴園民樂街23號寶石之星大廈18樓C室",
+    "PrivacyPolicy": "隱私政策",
+    "TermsAndConditions": "條款和條件",
+    "Shipment": "運輸",
+    "Booking": "預訂",
+    "ContactUs":"聯繫我們",
+    "TagLine":"準備您的業務？我們很樂意幫助！讓我們談談。"
+  },
+  "Form": {
+    "EmailAddress": "電子郵件地址",
+    "Password": "密碼",
+    "SignIn": "登入",
+    "LogIn": "登錄",
+    "SignUp": "註冊",
+    "DontHaveAnAccount": "沒有賬戶?",
+    "Register": "登記",
+    "ForgotPassword": "忘記密碼了嗎？",
+    "RememberMe": "記得我"
+  },
+  "ForgotPassword":{
+    "CheckInboxMessage": "檢查您的收件箱以獲取重置密碼的鏈接。",
+    "ResetLinkSent":"已發送重置鏈接",
+    "BackToLogin":"回到登入",
+    "Send":"發送",
+    "EmailAddress":"電子郵件地址",
+    "LostPassword":"忘記密碼？請輸入您的電子郵件地址。您將通過電子郵件收到創建新密碼的鏈接。",
+    "ForgotPassword":"忘記密碼"
+  },
+  "UserHeader":{
+    "Shipment":"運輸",
+    "Booking":"預訂",
+    "NewBooking":"新預訂"
+  },
+  "UserMyaccount": {
+    "MyAccount": "我的帳戶",
+    "BasicInfo": "基本信息",
+    "FirstName": "名",
+    "LastName": "姓",
+    "Email": "電子郵件",
+    "BusinessPhoneNumber": "公司電話號碼",
+    "Country": "國家",
+    "Password": "密碼",
+    "ResetPassword": "重設密碼",
+    "LastUpdateAt": "最後更新於",
+    "PreferredLanguage": "首選語言",
+    "Company": "公司",
+    "JobCapacity": "工作能力",
+    "SaveChanges":"保存更改",
+    "Cancel":"取消"
+  },
+  "UserSideBar":{
+    "Profile":"輪廓",
+    "Notification":"通知",
+    "Security":"安全",
+    "LogOut":"登出"
+  },
+  "LogOut":{
+    "LeaveThisPage":"離開這個頁面？",
+    "AreYouSureToLogOut":"您確定要退出嗎？",
+    "OK":"好的",
+    "Cancel":"取消"
+  },
+  "LeaveThisPage":{
+    "LeaveThisPage":"離開這個頁面？",
+    "YouHaveUnsavedChanges":"如果您決定繼續，您有未保存的更改將會丟失。您確定要離開此頁面嗎？",
+    "StayOnPage":"留在頁面上"
+  },
+  "ResetPassword":{
+    "ResetPassword":"重設密碼",
+    "CurrentPassword":"當前密碼",
+    "NewPassword":"新密碼",
+    "RepeatNewPassword":"重複新密碼",
+    "ConfirmPassword":"確認密碼",
+    "Confirm":"確認",
+    "BackToAccounts":"返回賬戶"
+  }
+}
