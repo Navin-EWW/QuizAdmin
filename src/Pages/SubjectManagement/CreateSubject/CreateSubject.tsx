@@ -38,7 +38,7 @@ export function CreateSubject() {
   });
 
   const successNavigate = useCallback(
-    debounce(() => navigate("/admin/list"), 200),
+    debounce(() => navigate("/subject/list"), 200),
     []
   );
 
@@ -83,8 +83,9 @@ export function CreateSubject() {
 
 
   const cancelClicked = () => {
-    navigate("/admin/list");
+    navigate("/subject/list");
   };
+
   useEffect(() => {
     if (!apiErrors.status) {
       setTimeout(() => {

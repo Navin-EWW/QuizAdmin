@@ -201,7 +201,7 @@ const AppContent = () => {
 
         {/* admin management */}
 
-        <Route path="admin">
+        <Route path="subject">
           <Route
             // index
             path="list"

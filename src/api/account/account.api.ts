@@ -1,20 +1,24 @@
 import {request} from "../../config/request";
+import { AxiosResponse } from "../../types";
+import { subjectResponseType } from "../../types/quiz";
 
-const prifix = "/admin";
+const prifix = "/";
 
-export const AdminAccount = async (body: any) => {
-  const response = await request({
-    url: `${prifix}/account`,
+export const UserProfile = async () => {
+  const response: AxiosResponse<subjectResponseType> = await request({
+    url: `${prifix}/profile`,
     method: "GET",
-    body,
   });
 
   return response;
 };
 
-export const ResetPassword = async (body: any) => {
-  const response = await request({
-    url: `${prifix}/account/reset-password`,
+export const ResetPassword = async (body: {
+  password:string,
+  confirm_password:string
+}) => {
+  const response :AxiosResponse<any> = await request({
+    url: `${prifix}/change-password`,
     method: "PUT",
     body,
   });

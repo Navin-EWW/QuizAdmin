@@ -13,6 +13,15 @@ export const AddSubject = async (body: subjectRequestType) => {
 
   return response;
 };
+export const UpdateSubject = async (body: subjectRequestType) => {
+  const response: AxiosResponse<subjectResponseType> = await request({
+    url: `${prifix}subject/${body.id}`,
+    method: "PUT",
+    body: body,
+  });
+
+  return response;
+};
 
 export const SubjectList = async ({
   name,
@@ -25,6 +34,13 @@ export const SubjectList = async ({
 }: subjectRequestType) => {
   const response: AxiosResponse<subjectResponseType[]> = await request({
     url: `${prifix}/subject?per_page=${per_page}&page=${current_page}&status=${status}&name=${name}&discription=${discription}&userId=${userId}&sortBy=${sortBy}&sortType=${sortType}`,
+    method: "GET",
+  });
+  return response;
+};
+export const SubjectListById = async ({ id }: { id: string }) => {
+  const response: AxiosResponse<subjectResponseType> = await request({
+    url: `${prifix}/subject/${id}`,
     method: "GET",
   });
   return response;

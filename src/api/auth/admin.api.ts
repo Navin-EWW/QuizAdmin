@@ -1,8 +1,6 @@
 import { request } from "../../config/request";
 
 
-const prifix = "/admin/auth";
-
 export const AdminSignInAPI = async (body: any) => {
   const response = await request({
     url: `/login`,
@@ -36,7 +34,7 @@ export const AdminResetPasswordAPI = async (data: any) => {
 
 export const LogoutAPI = async () => {
   const response = await request({
-    url: "/admin-auth/logout",
+    url: "/logout",
     method: "GET",
   });
 

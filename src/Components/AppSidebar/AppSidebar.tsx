@@ -57,8 +57,8 @@ const navigation = [
     icon: ProviderIcon,
     current: false,
     children: [
-      { name: "Admin", to: "/admin/list" },
-      { name: "+ New Admin", to: "/admin/add" },
+      { name: "Subject", to: "/subject/list" },
+      { name: "+ New Subject", to: "/subject/add" },
     ],
   },
  

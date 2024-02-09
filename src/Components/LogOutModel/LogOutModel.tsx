@@ -16,8 +16,7 @@ type Props = {
 function LogOutModel({ open, setOpen }: any) {
   const { removeAll } = useAuthStore();
   let navigate = useNavigate();
-  // const [open, setOpen] = useState(false);
-
+ 
   const { mutate, isLoading } = useMutation(LogoutAPI, {
     onSuccess: (data: any) => {
       if (data?.status) {

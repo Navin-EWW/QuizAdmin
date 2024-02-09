@@ -11,14 +11,15 @@ export interface subjectDataType {
     sortType?:string
     per_page?:number
     current_page?:number
+    id?:string|number
 }
   
   export interface subjectResponseType{
-    id: number
-    userId: number
+    id?: number
+    userId?: number | string
     name: string
-    discription: string
-    createdAt: string
-    updatedAt: string
-    deletedAt: any
+    discription?: string
+    createdAt?: string
+    updatedAt?: string
+    deletedAt?: any
 }

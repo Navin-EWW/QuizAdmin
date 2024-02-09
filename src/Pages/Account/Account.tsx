@@ -4,52 +4,38 @@ import _ from "lodash";
 import { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { object, ref, string } from "yup";
-import { AdminAccount, ResetPassword } from "../../api/account/account.api";
+import { ResetPassword, UserProfile } from "../../api/account/account.api";
 import LogOutModel from "../../Components/LogOutModel/LogOutModel";
 import UseToast from "../../hooks/useToast";
 import Spinner from "../../utils/Spinner";
+import { AccountResponseType } from "../../types/account";
+import moment from "moment";
 
 export function MyAccount() {
-  const [account, setAccount] = useState({
-    email: "",
-    firstName: "",
-    id: "",
-    lastName: "",
-    role: {
-      id: "",
-      name: "",
-      permissions: [],
-    },
-    updatedAt: "",
+  const [account, setAccount] = useState<AccountResponseType>({
+    firstName: "navin",
+    lastName: "Kumar",
+    fullName: "navin Kumar",
+    email: "navinkumar@yopmail.com",
+    createdAt: "2024-02-02T10:25:48.427Z",
   });
   const [password, setPassword] = useState(false);
-
-  const [permission, setPermissions] = useState("");
   const [logOutOpen, setlogOutOpen] = useState<boolean>(false);
-  const navigate = useNavigate();
-
-  const { dataUpdatedAt, error, isError, isLoading, isFetching, refetch } =
-    useQuery(["getAccount"], () => AdminAccount({}), {
+  
+  const { isFetching, refetch } = useQuery(
+    ["UserProfile"],
+    () => UserProfile(),
+    {
       keepPreviousData: true,
       onSuccess(data) {
         if (data.status) {
-          setAccount(data.data);
+          console.log("first");
+          // setAccount(data.data);
         }
       },
-    });
+    }
+  );
 
-  const permissions = () => {
-    let permission = "";
-    account.role.permissions.forEach((data: any) => {
-      permission = permission + "/" + data?.name;
-    });
-    const permissionstr = permission.substring(1);
-    setPermissions(permissionstr);
-  };
-
-  useEffect(() => {
-    permissions();
-  }, [account]);
 
   const signOutClicked = () => {
     setlogOutOpen(true);
@@ -66,14 +52,14 @@ export function MyAccount() {
         <dl className="px-5 py-5 sm:py-0 bg-white rounded-md font-medium md:shadow-md">
           <div className="py-4 sm:grid sm:grid-cols-3 sm:py-5 border-b border-grey_border_table text-sm">
             <label className="text-font_dark">First Name</label>
-            <p className="mt-1 sm:col-span-2 sm:mt-0">{account.firstName}</p>
+            <p className="mt-1 sm:col-span-2 capitalize sm:mt-0">{account.firstName}</p>
           </div>
           <div className="py-4 sm:grid sm:grid-cols-3 sm:py-5 border-b border-grey_border_table text-sm">
-            <label className="text-font_dark">Last Name</label>
+            <label className="text-font_dark capitalize">Last Name</label>
             <p className="mt-1 sm:col-span-2 sm:mt-0">{account.lastName}</p>
           </div>
           <div className="py-4 sm:grid sm:grid-cols-3 sm:py-5 border-b border-grey_border_table text-sm">
-            <label className="text-font_dark">Email</label>
+            <label className="text-font_dark lowercase">Email</label>
             <p className="mt-1 sm:col-span-2 sm:mt-0">{account.email}</p>
           </div>
           <LogOutModel open={logOutOpen} setOpen={setlogOutOpen} />
@@ -94,8 +80,11 @@ export function MyAccount() {
             <ResetPass setPassword={setPassword} />
           )}
           <div className="py-4 sm:grid sm:grid-cols-3 sm:py-5 border-b border-grey_border_table text-sm">
-            <label className="text-font_dark">User Role</label>
-            <p className="mt-1 sm:col-span-2 sm:mt-0">{account.role.name}</p>
+            <label className="text-font_dark">Created At</label>
+            <p className="mt-1 sm:col-span-2 sm:mt-0">{
+
+            moment(account.createdAt).format("dddd , Do MMMM YYYY, h:mm:ss a")
+            }</p>
           </div>
         </dl>
       )}
@@ -174,14 +163,16 @@ function ResetPass({ setPassword }: any) {
   } = useFormik({
     validationSchema: AdminSchema,
     initialValues: {
-      current_password: "",
+      current_password: "**********",
       password: "",
       confirm_password: "",
     },
 
     onSubmit: async (values, { resetForm }) => {
       event?.preventDefault();
-      mutate(values);
+      mutate({
+        ...values
+      });
       apiError.status && resetForm();
     },
   });
@@ -200,7 +191,9 @@ function ResetPass({ setPassword }: any) {
             onChange={handleChange}
             autoComplete="new-password"
             onBlur={handleBlur}
-            type={!pwd ? "password" : "text"}
+            disabled={true}
+            // type={!pwd ? "password" : "text"}
+            type={"password"}
             name="current_password"
             maxLength={15}
             value={(values?.current_password).trimStart()}
@@ -214,7 +207,7 @@ function ResetPass({ setPassword }: any) {
           />
 
           <div className="absolute top-[9px] flex items-center right-3">
-            {pwd ? (
+            {true ? (
               <svg
                 onClick={() => setPwd(!pwd)}
                 xmlns="http://www.w3.org/2000/svg"
@@ -347,7 +340,7 @@ function ResetPass({ setPassword }: any) {
             id="confirm_password"
             maxLength={15}
             value={(values?.confirm_password).trimStart()}
-            placeholder="Repeat New Password"
+            placeholder="Confirm New Password"
             className={`block w-full max-w-lg rounded-md font-normal border ${
               touched?.confirm_password && Boolean(errors?.confirm_password)
                 ? " border-error_red text-error_text"

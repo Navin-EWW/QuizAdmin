@@ -1,28 +1,22 @@
+import { useQuery } from "@tanstack/react-query";
+import moment from "moment";
 import * as React from "react";
-import DatePicker from "react-datepicker";
 import { useEffect, useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import "../../../utils/Pagination.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useMutation } from "@tanstack/react-query";
-import { AdminList } from "../../../api/admin/admin";
-import moment from "moment";
-import { useQuery } from "@tanstack/react-query";
-import UpArrow from "/icon/uparrow.svg";
-import DownArrow from "/icon/downarrow.svg";
 import Pagination from "../../../utils/Pagination";
+import "../../../utils/Pagination.css";
+import DownArrow from "/icon/downarrow.svg";
+import UpArrow from "/icon/uparrow.svg";
 
 import {
-  ChevronUpIcon,
-  ChevronDownIcon,
-  XMarkIcon,
+  XMarkIcon
 } from "@heroicons/react/24/outline";
-import ToggleModel from "../ToggleModel/ToggleModel";
-import { cloneDeep, debounce, range } from "lodash";
-import Spinner from "../../../utils/Spinner";
-import DateRangePicker from "../../../utils/DateRangePicker";
+import { debounce } from "lodash";
 import { SubjectList } from "../../../api/quiz/quizApi";
 import { subjectResponseType } from "../../../types/quiz";
+import Spinner from "../../../utils/Spinner";
+import ToggleModel from "../ToggleModel/ToggleModel";
 
 export function SubjectTable() {
   const navigate = useNavigate();
@@ -37,11 +31,10 @@ export function SubjectTable() {
 
   const per_page = 10;
 
-  const [filterData, setFilterData] = useState({
-    firstName: "",
-    lastName: "",
-    role: "",
-    status: "ALL",
+  const [filterData, setFilterData] = useState<subjectResponseType>({
+   name:"",
+   discription:"",
+   userId:""
   });
 
   const clearSearch = (key: string) => {
@@ -57,7 +50,7 @@ export function SubjectTable() {
     setFilterData({ ...filterData, [e.target.name]: e.target.value });
     filterFefechData();
   };
-
+  
   const onPageCall = (page: number) => {
     if (last_page >= page && page !== 0) {
       setcurrent_page(page);
@@ -86,11 +79,10 @@ export function SubjectTable() {
   );
 
   const viewClicked = (item: any) => {
-    navigate(`/admin/list/${item.id}`, { state: item });
+    navigate(`/subject/list/${item.id}`, { state: item });
   };
 
   const {
-   
     isLoading,
     isFetched,
     isFetching,
@@ -130,7 +122,7 @@ export function SubjectTable() {
           Subject Management
         </h1>
         <Link
-          to="/admin/add"
+          to="/subject/add"
           className="text-sm text-blue_primary font-semibold cursor-pointer border-b-2 border-blue_primary"
         >
           + New Subject
@@ -177,16 +169,16 @@ export function SubjectTable() {
                     <div className="flex py-2 px-3 text-font_black focus:outline-none border rounded-md border-grey_border_table focus:bg-transparent bg-transparent hover:border-blue_primary active:border-blue_primary focus:border-blue_primary placeholder:text-xs">
                       <input
                         onChange={pageFilter}
-                        value={filterData.firstName}
+                        value={filterData.userId}
                         id="userId"
                         name="userId"
                         placeholder="Search"
                         className="w-full focus:outline-none bg-transparent"
                       />
-                      {filterData.firstName && (
+                      {filterData?.userId && (
                         <XMarkIcon
-                          className="w-4 h-4"
-                          onClick={() => clearSearch("firstName")}
+                          className="w-4 h-4 cursor-pointer"
+                          onClick={() => clearSearch("userId")}
                         />
                       )}
                     </div>
@@ -197,7 +189,7 @@ export function SubjectTable() {
                   >
                     <div className="flex items-center gap-2 pb-2">
                       <label
-                        htmlFor="subjectName"
+                        htmlFor="name"
                         className="font-Inter text-table_head_color uppercase"
                       >
                         Subject Name
@@ -205,9 +197,9 @@ export function SubjectTable() {
                       <span>
                         <a
                           className="cursor-pointer"
-                          onClick={() => onSort("subjectName")}
+                          onClick={() => onSort("name")}
                         >
-                          {sortBy === "subjectName" ? (
+                          {sortBy === "name" ? (
                             sortType === "asc" ? (
                               <img src={DownArrow} />
                             ) : (
@@ -227,17 +219,17 @@ export function SubjectTable() {
                     <div className="flex py-2 px-3 text-font_black focus:outline-none border rounded-md border-grey_border_table focus:bg-transparent bg-transparent hover:border-blue_primary active:border-blue_primary focus:border-blue_primary">
                       <input
                         onChange={pageFilter}
-                        value={filterData.lastName}
-                        id="subjectName"
+                        value={filterData.name}
+                        id="name"
                         type="text"
-                        name="subjectName"
+                        name="name"
                         placeholder="Search"
                         className="w-full focus:outline-none bg-transparent"
                       />
-                      {filterData.lastName && (
+                      {filterData.name && (
                         <XMarkIcon
-                          onClick={() => clearSearch("subjectName")}
-                          className="w-4 h-4"
+                          onClick={() => clearSearch("name")}
+                           className="w-4 h-4 cursor-pointer"
                         />
                       )}
                     </div>
@@ -278,16 +270,16 @@ export function SubjectTable() {
                     <div className="flex py-2 text-font_black px-3 focus:outline-none border rounded-md border-grey_border_table focus:bg-transparent bg-transparent hover:border-blue_primary active:border-blue_primary focus:border-blue_primary">
                       <input
                         onChange={pageFilter}
-                        value={filterData.role}
+                        value={filterData.discription}
                         id="discription"
                         type="text"
                         name="discription"
                         placeholder="Search"
                         className="w-full focus:outline-none bg-transparent"
                       />
-                      {filterData.role && (
+                      {filterData.discription && (
                         <XMarkIcon
-                          className="w-4 h-4"
+                           className="w-4 h-4 cursor-pointer"
                           onClick={() => clearSearch("discription")}
                         />
                       )}
