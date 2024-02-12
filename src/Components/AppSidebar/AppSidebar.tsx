@@ -33,10 +33,8 @@ const navigation = [
     icon: ClientIcon,
     current: false,
     children: [
-      { name: "Merchant", to: "/merchant/list" },
-      { name: "+ New Merchant", to: "/merchant/add" },
-      { name: "User", to: "/user/list" },
-      { name: "+ New User", to: "/user/add" },
+      { name: "Examination", to: "/merchant/list" },
+      { name: "+ New Examination", to: "/merchant/add" },
     ],
   },
   {
@@ -46,11 +44,10 @@ const navigation = [
     children: [
       { name: "List View", to: "/order/list" },
       { name: "+ New Test", to: "/order/add" },
-      { name: "Bulk Edit", to: "/order/edit-bulkorder" },
+    
       // { name: "Bulk Edit Supplier Order", to: "/404" },
     ],
   },
-  
   {
     name: "Subject Management",
     
@@ -59,6 +56,8 @@ const navigation = [
     children: [
       { name: "Subject", to: "/subject/list" },
       { name: "+ New Subject", to: "/subject/add" },
+      { name: "Question", to: "/question/list" },
+      { name: "+ New Question", to: "/question/add" },
     ],
   },
  

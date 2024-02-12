@@ -169,7 +169,6 @@ const AppContent = () => {
         {/* merchant */}
         <Route path="merchant">
           <Route
-            // index
             path="list"
             element={
               <PrivateRouter
@@ -234,7 +233,7 @@ const AppContent = () => {
           <Route path="bulkorder" element={<BulkCustomerOrder />} />
           <Route path="list/:id" element={<OrderDetail />} />
           <Route path="errors/:id" element={<OrderError />} />
-          <Route path="edit-bulkorder" element={<EditBulkOrder />} />
+
           <Route path="success/:id" element={<SuccessStatus />} />
           <Route path="error/:id" element={<ErrorStatus />} />
         </Route>

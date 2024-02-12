@@ -1,27 +1,21 @@
-import { ArrowLeftIcon, HomeModernIcon } from "@heroicons/react/24/outline";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 // import { current } from "@reduxjs/toolkit";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { AdminRoles, AdminUser } from "../../../api/admin/admin";
 import { useCallback, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { DialogBox } from "../../../Components/DialogBox/DialogBox";
-import Spinner from "../../../utils/Spinner";
 
-import UseToast from "../../../hooks/useToast";
-import SubjectAbout from "./SubjectAbout";
-import Subjectlog from "./SubjectLog";
-import moment from "moment";
+import { useFormik } from "formik";
+import { debounce } from "lodash";
+import { object, string } from "yup";
 import {
   AddSubject,
   SubjectListById,
   UpdateSubject,
 } from "../../../api/quiz/quizApi";
+import UseToast from "../../../hooks/useToast";
 import { subjectResponseType } from "../../../types/quiz";
-import { object, string } from "yup";
-import { useFormik } from "formik";
 import { capitalizeFirst } from "../../../utils/Capitalization";
-import ButtonSpinner from "../../../utils/ButtonSpinner";
-import { debounce } from "lodash";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
